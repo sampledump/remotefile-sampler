@@ -27,7 +27,7 @@ pipeline {
 			}
 			options { timeout(time: 30, unit: 'MINUTES') }
 			environment {
-				ARTIFACTORY = credentials("" + props['artifactory.credentials.ref'])
+				ARTIFACTORY = credentials(props['artifactory.credentials.ref'].toString())
 			}
 			steps {
 				script {
