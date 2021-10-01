@@ -26,13 +26,11 @@ pipeline {
 				label any
 			}
 			options { timeout(time: 30, unit: 'MINUTES') }
-			environment {
-				ARTIFACTORY = credentials(props['artifactory.credentials.ref'].toString())
-			}
+
 			steps {
 				script {
 							sh 'echo ${ARTIFACTORY_USER}'
-
+							sh 'echo ${props['artifactory.credentials.ref']}'
 				}
 			}
 		}
