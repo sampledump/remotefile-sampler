@@ -1,5 +1,5 @@
 def props = readRemoteProperties url:"https://raw.githubusercontent.com/spring-projects/spring-data-build/3.0.x/ci/configuration.properties"
-
+def creds = props['artifactory.credentials.ref']
 pipeline {
 
 	agent none
@@ -23,9 +23,7 @@ pipeline {
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
-			agent {
-				label any
-			}
+			agent any
 			options { timeout(time: 30, unit: 'MINUTES') }
 
 			steps {
