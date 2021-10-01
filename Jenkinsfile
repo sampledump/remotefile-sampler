@@ -26,7 +26,7 @@ pipeline {
 				}
 			}
 			environment {
-				ARTIFACTORY = credentials(creds)
+				ARTIFACTORY = credentials("${creds}")
 			}
 			agent any
 			options { timeout(time: 30, unit: 'MINUTES') }
@@ -35,6 +35,7 @@ pipeline {
 				script {
 							sh 'echo ${ARTIFACTORY_USER}'
 							sh 'echo ${creds}'
+							sh "echo ${creds}"
 				}
 			}
 		}
