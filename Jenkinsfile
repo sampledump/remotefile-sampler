@@ -30,7 +30,7 @@ pipeline {
 			steps {
 				script {
 							sh 'echo ${ARTIFACTORY_USER}'
-							sh 'echo ${props['artifactory.credentials.ref']}'
+							sh 'echo ' + props['artifactory.credentials.ref']
 				}
 			}
 		}
