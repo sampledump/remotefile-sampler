@@ -1,4 +1,6 @@
 def props = readRemoteProperties url:"https://raw.githubusercontent.com/spring-projects/spring-data-build/3.0.x/ci/configuration.properties"
+def creds = props['artifactory.credentials.ref']
+
 pipeline {
 
 	agent none
@@ -30,7 +32,7 @@ pipeline {
 			steps {
 				script {
 							sh 'echo ${ARTIFACTORY_USER}'
-							sh 'echo ' + props['artifactory.credentials.ref']
+							sh 'echo ${creds}'
 				}
 			}
 		}
