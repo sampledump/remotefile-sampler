@@ -1,5 +1,4 @@
 def props = readRemoteProperties url:"https://raw.githubusercontent.com/spring-projects/spring-data-build/3.0.x/ci/configuration.properties"
-def creds = props['artifactory.credentials.ref']
 
 pipeline {
 
